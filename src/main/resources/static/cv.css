@@ -1,0 +1,52 @@
+@media print {
+    html {
+		box-sizing: border-box;
+		overflow: scroll;
+		}		
+		
+	main {
+		hyphens: auto;
+		background-color: #02879e;
+		color: black;
+	}
+	
+	body {
+		min-height: fit-content;
+		margin: 0;
+		display: block;
+		color: #02879e;
+		font-family: Roboto, sans-serif;
+		font-weight: 500;
+	}
+	html, body {
+        margin: 0;
+        padding: 0;
+        height: 100%;
+      }
+	  #cv h1:first-child {
+		margin-top: 0;
+		padding-top: 0;
+	  }
+	h1 {color: #02879e; font-size: 3em; margin-bottom: 2.75em;}
+	p {font-size: xx-small;}
+	article {
+		font-size: xx-small;
+	}
+	a {
+		background-color: #02879e;
+		text-decoration: none;
+		color: white;
+	}
+	
+	.mainlayout {display: flex; margin-top: 0;}
+	.contact {background-color: #02879e; color: #FFFF; margin: 1em}
+	.contactimage {width: 1em; height: auto; margin-right: 1em; }
+	.heading-icon { max-inline-size: 100%; height: 1em;width: auto; margin-right: 1em;}
+	.company {font-style: italic;}
+	.mainpic { max-width: 14em; height: auto; background: #ddd; }
+	.right-column {background-color: #02879e;float:right;}
+	.cv-headings {background-color: #02879e; color:#FFFF}
+	.left-column {float: left; background-color: #FFFF; color: black;}
+	.right-column {float: right; background-color: #02879e; min-height: 100vh;margin: 0;}
+	.contactline{display: flex;align-items: flex-start;}
+}
