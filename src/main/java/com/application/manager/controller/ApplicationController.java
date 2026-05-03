@@ -2,7 +2,10 @@ package com.application.manager.controller;
 
 import java.util.List;
 
+import org.springframework.http.HttpHeaders;
 import org.springframework.http.HttpStatus;
+import org.springframework.http.MediaType;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -47,9 +50,16 @@ public class ApplicationController
 		
 		
 		@PostMapping("/{id}/pdf")
-		public void generatePdf(@PathVariable Long id)
+		public ResponseEntity<byte[]> generatePdf(@PathVariable Long id)
 		{
-			applicationService.generatePdf(id);
+			byte[] pdf = applicationService.generatePdf(id);
+			String filename = "prasatko_kathleen_bewerbung_" + id + ".pdf";
+			return  ResponseEntity
+					.ok()
+					.header(HttpHeaders.CONTENT_TYPE, MediaType.APPLICATION_PDF_VALUE)
+					.header(HttpHeaders.CONTENT_DISPOSITION, "inline; filename=\"" + filename + "\"")
+					.body(pdf);
+					
 		}
 		
 		@DeleteMapping("/{id}")

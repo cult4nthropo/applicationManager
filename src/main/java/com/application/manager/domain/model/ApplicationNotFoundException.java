@@ -1,6 +1,11 @@
 package com.application.manager.domain.model;
 
-public class ApplicationNotFoundException extends RuntimeException{
+import org.springframework.http.HttpStatus;
+import org.springframework.web.bind.annotation.ResponseStatus;
+
+@ResponseStatus(HttpStatus.NOT_FOUND)
+public class ApplicationNotFoundException extends RuntimeException
+{
 
 	/**
 	 * 
@@ -14,6 +19,6 @@ public class ApplicationNotFoundException extends RuntimeException{
 	
 	public ApplicationNotFoundException(Long id)
 	{
-		super("Bewerbung mit der id " + id + " existiert nicht");
+		super("Application with id " + id + " not found.");
 	}
 }
