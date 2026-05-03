@@ -4,35 +4,41 @@ import jakarta.persistence.Embeddable;
 import jakarta.persistence.Embedded;
 
 @Embeddable
-public class Cv {
+public class Cv 
+{
 	
 	@Embedded
 	private CvContactData contactData;
 	private String fotoPath;
 	private String primaryColor;
 	
-	public CvContactData getContactData() {
+	public CvContactData getContactData() 
+	{
 		return contactData;
 	}
 	
-	public void setApplicantAddress(CvContactData contactData) {
+	public void setApplicantAddress(CvContactData contactData) 
+	{
 		this.contactData = contactData;
 	}
 
-	public String getFotoPath() {
+	public String getFotoPath() 
+	{
 		return fotoPath;
 	}
 
-	public void setFotoPath(String fotoPath) {
+	public void setFotoPath(String fotoPath) 
+	{
 		this.fotoPath = fotoPath;
 	}
 
-	public String getPrimaryColor() {
+	public String getPrimaryColor() 
+	{
 		return primaryColor;
 	}
 
-	public void setPrimaryColor(String primaryColor) {
+	public void setPrimaryColor(String primaryColor) 
+	{
 		this.primaryColor = primaryColor;
 	}
-
 }

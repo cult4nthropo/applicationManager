@@ -3,7 +3,8 @@ package com.application.manager.domain.model;
 import jakarta.persistence.Embeddable;
 
 @Embeddable
-public class SenderAdress {
+public class SenderAdress 
+{
 	
 	private String senderName;
 	private String senderStreet;
@@ -13,11 +14,13 @@ public class SenderAdress {
 	
 	public SenderAdress() {}
 	
-	public String getSenderName() {
+	public String getSenderName() 
+	{
 		return senderName;
 	}
 	
-	public void setSenderName(String name) {
+	public void setSenderName(String name) 
+	{
 		this.senderName = name;
 	}
 	
@@ -25,31 +28,38 @@ public class SenderAdress {
 		return senderStreet;
 	}
 	
-	public void setSenderStreet(String street) {
+	public void setSenderStreet(String street) 
+	{
 		this.senderStreet = street;
 	}
 	
-	public String getSenderCity() {
+	public String getSenderCity() 
+	{
 		return senderCity;
 	}
 	
-	public void setSenderCity(String city) {
+	public void setSenderCity(String city) 
+	{
 		this.senderCity = city;
 	}
 	
-	public String getSenderPhone() {
+	public String getSenderPhone() 
+	{
 		return senderPhone;
 	}
 	
-	public void setSenderPhone(String phone) {
+	public void setSenderPhone(String phone) 
+	{
 		this.senderPhone = phone;
 	}
 	
-	public String getSenderMail() {
+	public String getSenderMail() 
+	{
 		return senderMail;
 	}
 	
-	public void setSenderMail(String mail) {
+	public void setSenderMail(String mail) 
+	{
 		this.senderMail = mail;
 	}
 }

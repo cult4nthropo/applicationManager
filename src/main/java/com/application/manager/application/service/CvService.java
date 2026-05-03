@@ -8,7 +8,8 @@ import com.application.manager.domain.model.Editable;
 import com.application.manager.domain.model.Previewable;
 
 @Service
-public class CvService implements Editable<Cv>, Previewable<Cv>{
+public class CvService implements Editable<Cv>, Previewable<Cv>
+{
 	
 	private final ApplicationService applicationService;
 	
@@ -28,12 +29,14 @@ public class CvService implements Editable<Cv>, Previewable<Cv>{
 	}
 	
 	@Override
-	public String preview(Long id, Cv cv) {
+	public String preview(Long id, Cv cv) 
+	{
 		return "<html>" + cv.getContactData().getCvName() + "</html>";
 	}
 
 	@Override
-	public Cv update(Long id, Cv cv) {
+	public Cv update(Long id, Cv cv) 
+	{
 		Application application = applicationService.getById(id);
 		application.setCv(cv);
 		applicationService.save(application);

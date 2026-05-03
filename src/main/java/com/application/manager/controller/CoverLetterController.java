@@ -13,7 +13,8 @@ import com.application.manager.domain.model.CoverLetter;
 
 @RestController
 @RequestMapping("/api/applications/{id}/coverletter")
-public class CoverLetterController {
+public class CoverLetterController 
+{
 	
 	private final CoverLetterService coverLetterService;
 	
@@ -23,7 +24,7 @@ public class CoverLetterController {
 	}
 	
 	@GetMapping
-	public CoverLetter getById(@PathVariable Long id, @RequestBody CoverLetter coverLetter)
+	public CoverLetter getById(@PathVariable Long id)
 	{
 		return coverLetterService.getById(id);
 	}
@@ -45,6 +46,4 @@ public class CoverLetterController {
 	{
 		return coverLetterService.preview(id, coverLetter);
 	}
-	
-	
 }

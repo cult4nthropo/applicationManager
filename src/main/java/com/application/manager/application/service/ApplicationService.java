@@ -14,7 +14,8 @@ import com.application.manager.domain.repository.ApplicationRepository;
 import jakarta.annotation.Resource;
 
 @Service
-public class ApplicationService implements PdfGeneratable, Deletable{
+public class ApplicationService implements PdfGeneratable, Deletable
+{
 	
 	private final ApplicationRepository applicationRepository;
 	
@@ -34,27 +35,32 @@ public class ApplicationService implements PdfGeneratable, Deletable{
 	}
 	
 	@Override
-	public void delete(Long id) {
+	public void delete(Long id) 
+	{
 		applicationRepository.deleteById(id);		
 	}
 
 	@Override
-	public byte[] generatePdf(Long id) {
+	public byte[] generatePdf(Long id) 
+	{
 		Application application = getById(id);
 		return ("PDF für " + application.getCompany()).getBytes();
 	}
 
-	public void setCoverLetter(CoverLetter coverLetter) {
+	public void setCoverLetter(CoverLetter coverLetter) 
+	{
 		// TODO Auto-generated method stub
 		
 	}
 
-	public List<Application> findAll() {
+	public List<Application> findAll() 
+	{
 		// TODO Auto-generated method stub
 		return null;
 	}
 
-	public Resource loadPdf(Long id) {
+	public Resource loadPdf(Long id) 
+	{
 		// TODO Auto-generated method stub
 		return null;
 	}

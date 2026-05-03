@@ -3,7 +3,8 @@ package com.application.manager.domain.model;
 import jakarta.persistence.Embeddable;
 
 @Embeddable
-public class CvContactData {
+public class CvContactData 
+{
 	private String cvContactName;
 	private String cvContactStreet;
 	private String cvContactCity;
@@ -12,43 +13,53 @@ public class CvContactData {
 	
 	public CvContactData() {}
 	
-	public String getCvName() {
+	public String getCvName() 
+	{
 		return cvContactName;
 	}
 	
-	public void setCvName(String name) {
+	public void setCvName(String name) 
+	{
 		this.cvContactName = name;
 	}
 	
-	public String getCvStreet() {
+	public String getCvStreet() 
+	{
 		return cvContactStreet;
 	}
 	
-	public void setCvStreet(String street) {
+	public void setCvStreet(String street) 
+	{
 		this.cvContactStreet = street;
 	}
 	
-	public String getCvCity() {
+	public String getCvCity() 
+	{
 		return cvContactCity;
 	}
 	
-	public void setCvCity(String city) {
+	public void setCvCity(String city) 
+	{
 		this.cvContactCity = city;
 	}
 	
-	public String getCvPhone() {
+	public String getCvPhone() 
+	{
 		return cvContactPhone;
 	}
 	
-	public void setCvPhone(String phone) {
+	public void setCvPhone(String phone) 
+	{
 		this.cvContactPhone = phone;
 	}
 	
-	public String getCvMail() {
+	public String getCvMail() 
+	{
 		return cvContactMail;
 	}
 	
-	public void setCvMail(String mail) {
+	public void setCvMail(String mail) 
+	{
 		this.cvContactMail = mail;
 	}
 }

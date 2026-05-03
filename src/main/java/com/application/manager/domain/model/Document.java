@@ -5,7 +5,8 @@ import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.Id;
 
 @Entity
-public class Document {
+public class Document 
+{
 	
 	@Id
 	@GeneratedValue
@@ -15,35 +16,43 @@ public class Document {
 	private String filePath;
 	private String type;
 
-	public Long getId() {
+	public Long getId() 
+	{
 		return id;
 	}
 
-	public void setId(Long id) {
+	public void setId(Long id) 
+	{
 		this.id = id;
 	}
 
-	public String getFileName() {
+	public String getFileName() 
+	{
 		return fileName;
 	}
 
-	public void setFileName(String fileName) {
+	public void setFileName(String fileName) 
+	{
 		this.fileName = fileName;
 	}
 
-	public String getFilePath() {
+	public String getFilePath() 
+	{
 		return filePath;
 	}
 
-	public void setFilePath(String filePath) {
+	public void setFilePath(String filePath) 
+	{
 		this.filePath = filePath;
 	}
 
-	public String getType() {
+	public String getType() 
+	{
 		return type;
 	}
 
-	public void setType(String type) {
+	public void setType(String type) 
+	{
 		this.type = type;
 	}
 }

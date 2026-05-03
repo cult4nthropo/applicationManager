@@ -14,7 +14,7 @@ import com.application.manager.application.service.DocumentService;
 import com.application.manager.domain.model.Document;
 
 @RestController
-@RequestMapping("api/bewerbungen/{id}/documents")
+@RequestMapping("api/applications/{id}/documents")
 public class DocumentController 
 {
 	private final DocumentService documentService;

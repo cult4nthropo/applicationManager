@@ -12,7 +12,8 @@ import jakarta.persistence.Id;
 import jakarta.persistence.OneToMany;
 
 @Entity
-public class Application {
+public class Application 
+{
 	
 	@Id
 	@GeneratedValue
@@ -32,59 +33,73 @@ public class Application {
 	private LocalDate createdAt;
 	private LocalDate interviewDate;
 	
-	public String getCompany() {
+	public String getCompany() 
+	{
 		return company;
 	}
 	
-	public void setCompany(String company) {
+	public void setCompany(String company) 
+	{
 		this.company = company;
 	}
 	
-	public String getStatus() {
+	public String getStatus() 
+	{
 		return status;
 	}
 	
-	public void setStatus(String status) {
+	public void setStatus(String status) 
+	{
 		this.status = status;
 	}
 
-	public CoverLetter getCoverLetter() {
+	public CoverLetter getCoverLetter() 
+	{
 		return coverLetter;
 	}
 
-	public void setCoverLetter(CoverLetter coverLetter) {
+	public void setCoverLetter(CoverLetter coverLetter) 
+	{
 		this.coverLetter = coverLetter;
 	}
 
-	public Cv getCv() {
+	public Cv getCv() 
+	{
 		return cv;
 	}
 
-	public void setCv(Cv cv) {
+	public void setCv(Cv cv) 
+	{
 		this.cv = cv;
 	}
 
-	public List<Document> getDocuments() {
+	public List<Document> getDocuments() 
+	{
 		return documents;
 	}
 
-	public void setDocuments(List<Document> documents) {
+	public void setDocuments(List<Document> documents) 
+	{
 		this.documents = documents;
 	}
 
-	public LocalDate getCreatedAt() {
+	public LocalDate getCreatedAt() 
+	{
 		return createdAt;
 	}
 
-	public void setCreatedAt(LocalDate createdAt) {
+	public void setCreatedAt(LocalDate createdAt) 
+	{
 		this.createdAt = createdAt;
 	}
 
-	public LocalDate getInterviewDate() {
+	public LocalDate getInterviewDate() 
+	{
 		return interviewDate;
 	}
 
-	public void setInterviewDate(LocalDate interviewDate) {
+	public void setInterviewDate(LocalDate interviewDate) 
+	{
 		this.interviewDate = interviewDate;
 	}
 }

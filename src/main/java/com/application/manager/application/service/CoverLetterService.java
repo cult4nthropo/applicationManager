@@ -9,7 +9,8 @@ import com.application.manager.domain.model.Editable;
 import com.application.manager.domain.model.Previewable;
 
 @Service
-public class CoverLetterService implements Editable<CoverLetter>, Previewable<CoverLetter>{
+public class CoverLetterService implements Editable<CoverLetter>, Previewable<CoverLetter>
+{
 
 	private final ApplicationService applicationService;
 	
@@ -24,7 +25,8 @@ public class CoverLetterService implements Editable<CoverLetter>, Previewable<Co
 	}
 	
 	@Override
-	public String preview(Long id, CoverLetter coverLetter) {
+	public String preview(Long id, CoverLetter coverLetter) 
+	{
 		return """
 		        <html>
 		        <body>
@@ -32,7 +34,7 @@ public class CoverLetterService implements Editable<CoverLetter>, Previewable<Co
 		            <div>%s</div>
 		            <div>%s</div>
 		            <div>%s</div>
-		            
+		            <br>
 		            <div>%s</div>
 		            <div>%s</div>
 		            <div>%s</div>
@@ -56,22 +58,27 @@ public class CoverLetterService implements Editable<CoverLetter>, Previewable<Co
 	}
 
 	@Override
-	public CoverLetter update(Long id, CoverLetter coverLetter) {
+	public CoverLetter update(Long id, CoverLetter coverLetter) 
+	{
 		Application application = applicationService.getById(id);
 		application.setCoverLetter(coverLetter);
 		applicationService.save(application);
 		return coverLetter;
 	}
 
-	public void updateText(Long id, String text) {
+	public void updateText(Long id, String text) 
+	{
 		Application application = applicationService.getById(id);
 		CoverLetter coverLetter = application.getCoverLetter();
 		
 		if (coverLetter == null)
-			application.setCoverLetter(new CoverLetter());
+		{
+			coverLetter = new CoverLetter();
+			application.setCoverLetter(coverLetter);
+		}
+			
 		
 		coverLetter.setText(text);
 		applicationService.save(application);
 	}
-
 }
