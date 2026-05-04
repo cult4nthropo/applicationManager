@@ -18,6 +18,14 @@ import org.springframework.web.bind.annotation.RestController;
 import com.application.manager.application.service.ApplicationService;
 import com.application.manager.domain.model.Application;
 
+/**
+ * REST controller for managing {@link com.application.manager.domain.model.Application}.
+ *
+ * <p>Provides CRUD operations for applications as well as PDF generation.
+ * Each application is identified by its unique ID.</p>
+ *
+ * <p>Base URL: {@code /api/applications}</p>
+ */
 @RestController
 @RequestMapping("/api/applications")
 public class ApplicationController 
@@ -30,25 +38,42 @@ public class ApplicationController
 			this.applicationService = applicationService;
 		}
 		
+		/**
+		 * @param application the application to create
+		 * @return the persisted application including generated ID
+		 */
 		@PostMapping
 		public Application create(@RequestBody Application application)
 		{
 			return applicationService.save(application);
 		}
 		
+		/**
+		 * Retrieves all stored applications.
+		 *
+		 * @return list of all applications
+		 */
 		@GetMapping
 		public List<Application>getAllApplications()
 		{
 			return applicationService.findAll();
 		}
 		
+		/**
+		 * @param id the application ID
+		 * @return the application if found
+		 * @throws com.application.manager.exception.ResourceNotFoundException if not found
+		 */
 		@GetMapping("/{id}")
 		public Application getById(@PathVariable Long id)
 		{
 			return applicationService.getById(id);
 		}
 		
-		
+		/**
+		 * @param id the application ID
+		 * @return PDF file as byte array
+		 */
 		@PostMapping("/{id}/pdf")
 		public ResponseEntity<byte[]> generatePdf(@PathVariable Long id)
 		{
@@ -62,6 +87,11 @@ public class ApplicationController
 					
 		}
 		
+		/**
+		 * Deletes an application by its ID.
+		 *
+		 * @param id the application ID
+		 */
 		@DeleteMapping("/{id}")
 		@ResponseStatus(HttpStatus.NO_CONTENT)
 		public void delete(@PathVariable Long id)
