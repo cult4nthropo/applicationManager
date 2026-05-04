@@ -6,6 +6,7 @@ import jakarta.persistence.Embeddable;
 public class CvContactData 
 {
 	private String cvContactName;
+	private String cvContactBirthday;
 	private String cvContactStreet;
 	private String cvContactCity;
 	private String cvContactPhone;
@@ -61,5 +62,13 @@ public class CvContactData
 	public void setCvMail(String mail) 
 	{
 		this.cvContactMail = mail;
+	}
+
+	public String getCvContactBirthday() {
+		return cvContactBirthday;
+	}
+
+	public void setCvContactBirthday(String cvContactBirthday) {
+		this.cvContactBirthday = cvContactBirthday;
 	}
 }

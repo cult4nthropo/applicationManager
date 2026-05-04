@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <title>{{cvContactName}}</title>
+</head>
+
+<body>
+<div id="cv">
+
+    <!-- ================= LEFT ================= -->
+    <div class="left-column">
+
+        <h1>{{cvContactName}}</h1>
+
+		<h2>Arbeitserfahrung</h2>
+			{{work_experience}}
+
+		<h2>Tech Stack</h2>
+		<ul>
+			{{tech_stack}}
+		</ul>
+
+    <!-- ================= RIGHT ================= -->
+    <div class="right-column">
+
+        <img class="mainpic" src="{{photo}}" alt="Profilfoto">
+
+        <div class="contact">
+            <p>{{cvContactBirthday}}</p>
+            <p>{{cvContactStreet}}</p>
+            <p>{{cvContactCity}}</p>
+            <p><a href="mailto:{{email}}">{{cvContactMail}}</a></p>
+            <p>{{cvContactPhone}}</p>
+        </div>
+    </div>
+</div>
+</body>
+</html>
