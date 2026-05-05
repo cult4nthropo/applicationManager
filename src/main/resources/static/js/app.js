@@ -38,6 +38,32 @@ function previewCoverLetter() {
     });
 }
 
+function uploadCvPhoto() {
+    const fileInput = document.getElementById("cv_photo");
+    const file = fileInput.files[0];
+
+    if (!file) {
+        alert("Bitte ein Bild auswählen");
+        return;
+    }
+
+    const formData = new FormData();
+    formData.append("file", file);
+
+    fetch(`${base}/${id}/cv/photo`, {
+        method: "POST",
+        body: formData
+    })
+    .then(res => {
+        if (!res.ok) throw new Error("Upload fehlgeschlagen");
+        return res.text();
+    })
+    .then(() => {
+        previewCv(); // 👉 ganz wichtig: neu rendern
+    })
+    .catch(err => alert(err.message));
+}
+
 function addJob() {
     const container = document.getElementById("jobsContainer");
 

@@ -3,35 +3,38 @@
 <head>
     <meta charset="UTF-8">
     <title>{{cvContactName}}</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@100&display=swap" rel="stylesheet">
 </head>
 
 <body>
-<div id="cv">
+<div id="cv" class="mainlayout">
 
     <!-- ================= LEFT ================= -->
     <div class="left-column">
 
         <h1>{{cvContactName}}</h1>
 
-		<h2>Arbeitserfahrung</h2>
+		<h2 class="cv-headings"><img class="heading-icon" src="/pics/work.PNG" alt="icon arbeitserfahrung">Arbeitserfahrung</h2>
 			{{work_experience}}
 
-		<h2>Tech Stack</h2>
+		<h2 class="cv-headings"><img class="heading-icon" src="/pics/code tech.png" alt="icon tech stack">Tech Stack</h2>
 		<ul>
 			{{tech_stack}}
 		</ul>
+	</div>
 
     <!-- ================= RIGHT ================= -->
     <div class="right-column">
 
-        <img class="mainpic" src="{{photo}}" alt="Profilfoto">
+        <img class="mainpic" src={{photoFilePath}} alt="Profilfoto">
 
         <div class="contact">
-            <p>{{cvContactBirthday}}</p>
-            <p>{{cvContactStreet}}</p>
-            <p>{{cvContactCity}}</p>
-            <p><a href="mailto:{{email}}">{{cvContactMail}}</a></p>
-            <p>{{cvContactPhone}}</p>
+            <p><img class="contactimage" src="/pics/calendar.PNG" alt="Geburtsdatum">{{cvContactBirthday}}</p>
+            <p class="contactline"><img class="contactimage" src="/pics/location.PNG" alt="Adresse">
+            	<span>{{cvContactStreet}}<br>{{cvContactCity}}</span></p>
+            <p class="contactline"><img class="contactimage" src="/pics/mail.PNG" alt="E-Mail"><span><a href="mailto:{{email}}">{{cvContactMail}}</a></span></p>
+            <p><img class="contactimage" src="/pics/phone.PNG" alt="Telefon">{{cvContactPhone}}</p>
         </div>
     </div>
 </div>

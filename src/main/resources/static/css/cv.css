@@ -1,5 +1,6 @@
-@media print {
-    html {
+@import url('https://fonts.googleapis.com/css2?family=PT+Sans+Narrow&display=swap');
+@media screen{
+	html {
 		box-sizing: border-box;
 		overflow: scroll;
 		}		
@@ -11,7 +12,7 @@
 	}
 	
 	body {
-		min-height: fit-content;
+		min-height: 100vh;
 		margin: 0;
 		display: block;
 		color: #02879e;
@@ -27,10 +28,10 @@
 		margin-top: 0;
 		padding-top: 0;
 	  }
-	h1 {color: #02879e; font-size: 3em; margin-bottom: 2.75em;}
-	p {font-size: xx-small;}
+	h1 {color: #02879e; }
+	p {font-size: small;}
 	article {
-		font-size: xx-small;
+		font-size: small;
 	}
 	a {
 		background-color: #02879e;
@@ -38,8 +39,8 @@
 		color: white;
 	}
 	
-	.mainlayout {display: flex; margin-top: 0;}
-	.contact {background-color: #02879e; color: #FFFF; margin: 1em}
+	.mainlayout {display: flex;margin-top: 0;}
+	.contact {background-color: #02879e; color: #FFFF;}
 	.contactimage {width: 1em; height: auto; margin-right: 1em; }
 	.heading-icon { max-inline-size: 100%; height: 1em;width: auto; margin-right: 1em;}
 	.company {font-style: italic;}
@@ -47,6 +48,8 @@
 	.right-column {background-color: #02879e;float:right;}
 	.cv-headings {background-color: #02879e; color:#FFFF}
 	.left-column {float: left; background-color: #FFFF; color: black;}
-	.right-column {float: right; background-color: #02879e; min-height: 100vh;margin: 0;}
+	.right-column {float: right; background-color: #02879e; margin: 0;}
 	.contactline{display: flex;align-items: flex-start;}
+
 }
+/* end @media */
