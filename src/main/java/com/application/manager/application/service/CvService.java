@@ -1,10 +1,15 @@
 package com.application.manager.application.service;
 
 import org.springframework.stereotype.Service;
+import org.springframework.web.multipart.MultipartFile;
 
 import java.io.IOException;
 import java.io.InputStream;
 import java.nio.charset.StandardCharsets;
+import java.nio.file.Files;
+import java.nio.file.Path;
+import java.nio.file.Paths;
+import java.nio.file.StandardOpenOption;
 import java.util.List;
 
 import com.application.manager.domain.model.Application;
@@ -43,12 +48,13 @@ public class CvService implements Editable<Cv>, Previewable<Cv>
 		template = template.replace("</head>", "<style>" + css + "</style></head>");
 
 		template = template
-		        .replace("{{cvContactName}}", safe(cv.getContactData().getCvName()))
+				.replace("{{photoFilePath}}", safe(cv.getFotoFilePath()))
+		        .replace("{{cvContactName}}", safe(cv.getContactData().getCvContactName()))
 		        .replace("{{cvContactBirthday}}", safe(cv.getContactData().getCvContactBirthday()))
-		        .replace("{{cvContactStreet}}", safe(cv.getContactData().getCvStreet()))
-		        .replace("{{cvContactCity}}", safe(cv.getContactData().getCvCity()))
-		        .replace("{{cvContactPhone}}", safe(cv.getContactData().getCvPhone()))
-		        .replace("{{cvContactMail}}", safe(cv.getContactData().getCvMail()));
+		        .replace("{{cvContactStreet}}", safe(cv.getContactData().getCvContactStreet()))
+		        .replace("{{cvContactCity}}", safe(cv.getContactData().getCvContactCity()))
+		        .replace("{{cvContactPhone}}", safe(cv.getContactData().getCvContactPhone()))
+		        .replace("{{cvContactMail}}", safe(cv.getContactData().getCvContactMail()));
 		template = template.replace(
 			    "{{work_experience}}",
 			    renderJobs(cv.getJobs())
@@ -65,17 +71,23 @@ public class CvService implements Editable<Cv>, Previewable<Cv>
 		return template;
 	}
 
-	private String renderJobs(List<Job> jobs) {
+	private String renderJobs(List<Job> jobs) 
+	{
 	    if (jobs == null || jobs.isEmpty()) {
 	        return "";
 	    }
 
 	    return jobs.stream()
 	            .map(job -> {
-	                String tasksHtml = job.getTasks() == null ? "" :
-	                        job.getTasks().stream()
-	                                .map(t -> "<li>" + safe(t) + "</li>")
-	                                .reduce("", String::concat);
+
+	                String tasksHtml = "";
+
+	                if (job.getTasks() != null && !job.getTasks().isBlank()) {
+	                    tasksHtml = job.getTasks()
+	                            .lines()
+	                            .map(t -> "<li>" + safe(t) + "</li>")
+	                            .reduce("", String::concat);
+	                }
 
 	                return """
 	                    <article class="job">
@@ -114,7 +126,7 @@ public class CvService implements Editable<Cv>, Previewable<Cv>
 			return new String(inputStream.readAllBytes(), StandardCharsets.UTF_8);
 		} catch (IOException e) {
 			e.printStackTrace();
-			return "";
+			return "property is null";
 		} 
 	}
 	
@@ -131,5 +143,31 @@ public class CvService implements Editable<Cv>, Previewable<Cv>
 	
 	private String safe(String value) {
 	    return value == null ? "" : value;
+	}
+
+	public String uploadPhoto(Long id, MultipartFile file) 
+	{
+		try {
+	        String filename = file.getOriginalFilename();
+
+	        Path uploadDir = Paths.get("uploads");
+
+	        if (!Files.exists(uploadDir)) {
+	            Files.createDirectories(uploadDir);
+	        }
+
+	        Path filePath = uploadDir.resolve(filename);
+	        Files.write(filePath, file.getBytes(), StandardOpenOption.CREATE);
+
+	        Cv cv = applicationService.getById(id).getCv();
+	        String publicPath = "/uploads/" + filename;
+	        cv.setFotoFilePath(publicPath);
+	        applicationService.save(applicationService.getById(id));
+
+	        return publicPath;
+
+	    } catch (IOException e) {
+	        throw new RuntimeException("Fehler beim Speichern des Fotos", e);
+	    }
 	}
 }

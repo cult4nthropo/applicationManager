@@ -25,7 +25,7 @@ public class Application
 	@Embedded
 	private CoverLetter coverLetter;
 	@Embedded
-	private Cv cv;
+    private Cv cv;
 	
 	@OneToMany(cascade = CascadeType.ALL, orphanRemoval = true)
 	private List<Document> documents = new ArrayList<Document>();

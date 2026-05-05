@@ -1,35 +1,21 @@
 package com.application.manager.domain.model;
 
-import jakarta.persistence.*;
-import java.util.ArrayList;
-import java.util.List;
+import jakarta.persistence.Embeddable;
+import jakarta.persistence.Lob;
 
-@Entity
-public class Job {
-
-    @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long id;
+@Embeddable
+public class Job 
+{
 
     private String title;
-
     private String company;
+    private String tech;
+    
+    @Lob
+    private String tasks;
 
-    private String tech; // optional: z.B. ".NET, Spring, SQL"
-
-    @ElementCollection
-    @CollectionTable(name = "job_tasks", joinColumns = @JoinColumn(name = "job_id"))
-    @Column(name = "task")
-    private List<String> tasks = new ArrayList<>();
-
-    // optional: Zeitraum
     private String startDate;
     private String endDate;
-
-
-    public Long getId() {
-        return id;
-    }
 
     public String getTitle() {
         return title;
@@ -55,11 +41,11 @@ public class Job {
         this.tech = tech;
     }
 
-    public List<String> getTasks() {
+    public String getTasks() {
         return tasks;
     }
 
-    public void setTasks(List<String> tasks) {
+    public void setTasks(String tasks) {
         this.tasks = tasks;
     }
 

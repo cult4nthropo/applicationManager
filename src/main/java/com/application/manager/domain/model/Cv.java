@@ -3,26 +3,29 @@ package com.application.manager.domain.model;
 import java.util.ArrayList;
 import java.util.List;
 
-import jakarta.persistence.CascadeType;
+import jakarta.persistence.CollectionTable;
+import jakarta.persistence.Column;
 import jakarta.persistence.ElementCollection;
 import jakarta.persistence.Embeddable;
 import jakarta.persistence.Embedded;
-import jakarta.persistence.JoinColumn;
-import jakarta.persistence.OneToMany;
 
 @Embeddable
 public class Cv 
 {
-	
 	@Embedded
-	private CvContactData contactData;
-	private String fotoPath;
-	private String primaryColor;
-	@OneToMany(cascade = CascadeType.ALL, orphanRemoval = true)
-	@JoinColumn(name = "cv_id")
-	private List<Job> jobs = new ArrayList<Job>();
-	@ElementCollection
-	private List<String> techStack = new ArrayList<String>();
+    private CvContactData contactData;
+
+    private String fotoFilePath;
+    private String primaryColor;
+
+    @ElementCollection
+    @CollectionTable(name = "cv_jobs", joinColumns = {})
+    private List<Job> jobs = new ArrayList<>();
+
+    @ElementCollection
+    @CollectionTable(name = "cv_techstack")
+    @Column(name = "tech")
+    private List<String> techStack = new ArrayList<>();
 	
 	
 	public CvContactData getContactData() 
@@ -35,14 +38,14 @@ public class Cv
 		this.contactData = contactData;
 	}
 
-	public String getFotoPath() 
+	public String getFotoFilePath() 
 	{
-		return fotoPath;
+		return fotoFilePath;
 	}
 
-	public void setFotoPath(String fotoPath) 
+	public void setFotoFilePath(String fotoPath) 
 	{
-		this.fotoPath = fotoPath;
+		this.fotoFilePath = fotoPath;
 	}
 
 	public String getPrimaryColor() 

@@ -14,52 +14,52 @@ public class CvContactData
 	
 	public CvContactData() {}
 	
-	public String getCvName() 
+	public String getCvContactName() 
 	{
 		return cvContactName;
 	}
 	
-	public void setCvName(String name) 
+	public void setContactCvName(String name) 
 	{
 		this.cvContactName = name;
 	}
 	
-	public String getCvStreet() 
+	public String getCvContactStreet() 
 	{
 		return cvContactStreet;
 	}
 	
-	public void setCvStreet(String street) 
+	public void setCvContactStreet(String street) 
 	{
 		this.cvContactStreet = street;
 	}
 	
-	public String getCvCity() 
+	public String getCvContactCity() 
 	{
 		return cvContactCity;
 	}
 	
-	public void setCvCity(String city) 
+	public void setContactCvCity(String city) 
 	{
 		this.cvContactCity = city;
 	}
 	
-	public String getCvPhone() 
+	public String getCvContactPhone() 
 	{
 		return cvContactPhone;
 	}
 	
-	public void setCvPhone(String phone) 
+	public void setCvContactPhone(String phone) 
 	{
 		this.cvContactPhone = phone;
 	}
 	
-	public String getCvMail() 
+	public String getCvContactMail() 
 	{
 		return cvContactMail;
 	}
 	
-	public void setCvMail(String mail) 
+	public void setCvContactMail(String mail) 
 	{
 		this.cvContactMail = mail;
 	}

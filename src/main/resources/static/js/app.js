@@ -55,11 +55,12 @@ function uploadCvPhoto() {
         body: formData
     })
     .then(res => {
+		alert(res);
         if (!res.ok) throw new Error("Upload fehlgeschlagen");
         return res.text();
     })
     .then(() => {
-        previewCv(); // 👉 ganz wichtig: neu rendern
+        previewCv();
     })
     .catch(err => alert(err.message));
 }
